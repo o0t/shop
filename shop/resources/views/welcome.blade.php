@@ -24,7 +24,7 @@
           <div class="cards-list container">
 
             <div class="cards">
-            <div class="card_image"> <a class="card_image" href="#"><img src="https://cdn.al-ain.com/images/2022/5/01/62-170515-do-you-choose-the-right-headphones-for-you_700x400.jpg" /></a> </div>
+            <div class="card_image"> <a class="card_image" href="{{ route('Headphones') }}"><img src="https://cdn.al-ain.com/images/2022/5/01/62-170515-do-you-choose-the-right-headphones-for-you_700x400.jpg" /></a> </div>
             <div class="card_title title-white">
                 <p class="text-cards">سماعات </p>
             </div>
@@ -32,7 +32,7 @@
 
             <div class="cards">
             <div class="card_image">
-            <a class="card_image" href="#"> <img src="https://yallanshooof.com/wp-content/uploads/2021/05/compactkeyboard-lowres-2x1-6260-1024x512-1-1200x900.jpg" /> </a>
+            <a class="card_image" href="{{ route('keyboard') }}"> <img src="https://yallanshooof.com/wp-content/uploads/2021/05/compactkeyboard-lowres-2x1-6260-1024x512-1-1200x900.jpg" /> </a>
                 </div>
             <div class="card_title title-white">
                 <p class="text-cards"> كيبوردات</p>
