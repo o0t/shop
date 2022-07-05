@@ -8,7 +8,7 @@ class AdminController extends Controller
 {
 
     public function index(){
-        return 'This is index Admin';
+        return view('admin.home');
     }
 
 }

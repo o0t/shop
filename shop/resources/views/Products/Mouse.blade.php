@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','السماعات')
+@section('title','الماوس')
 @push('css')
     {{-- <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}" /> --}}
 @endpush

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -20,14 +21,11 @@ Route::get('/', function () {
 });
 
 
-// Page Products
-Route::get('Headphones', function () {
-    return view('Products.Headphones');
-})->name('Headphones');
-
-Route::get('keyboard', function () {
-    return view('Products.keyboard');
-})->name('keyboard');
+// Products page
+Route::get('Headphones', [ProductsController::class, 'Headphones'])->name('Headphones');
+Route::get('keyboards', [ProductsController::class, 'keyboards'])->name('keyboards');
+Route::get('Mouse', [ProductsController::class, 'Mouse'])->name('Mouse');
+Route::get('Mics', [ProductsController::class, 'Mics'])->name('Mics');
 
 
 // Admin

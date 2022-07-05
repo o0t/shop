@@ -32,7 +32,7 @@
 
             <div class="cards">
             <div class="card_image">
-            <a class="card_image" href="{{ route('keyboard') }}"> <img src="https://yallanshooof.com/wp-content/uploads/2021/05/compactkeyboard-lowres-2x1-6260-1024x512-1-1200x900.jpg" /> </a>
+            <a class="card_image" href="{{ route('keyboards') }}"> <img src="https://yallanshooof.com/wp-content/uploads/2021/05/compactkeyboard-lowres-2x1-6260-1024x512-1-1200x900.jpg" /> </a>
                 </div>
             <div class="card_title title-white">
                 <p class="text-cards"> كيبوردات</p>
@@ -41,7 +41,7 @@
 
             <div class="cards">
             <div class="card_image">
-            <a class="card_image" href="#">  <img src="https://assets2.razerzone.com/images/pnx.assets/0d7a5ccfece341f3ba0c3bd39efd0ed1/find-the-right-mouse-fit-category-768x500-mobile.jpg" /> </a>
+            <a class="card_image" href="{{ route('Mouse')}}">  <img src="https://assets2.razerzone.com/images/pnx.assets/0d7a5ccfece341f3ba0c3bd39efd0ed1/find-the-right-mouse-fit-category-768x500-mobile.jpg" /> </a>
             </div>
             <div class="card_title">
                 <p class="text-cards"> ماوسات</p>
@@ -50,7 +50,7 @@
 
             <div class="cards">
             <div class="card_image">
-            <a class="card_image" href="#">  <img src="https://1.bp.blogspot.com/-mJsRD5XtzNE/XoJDFAWoirI/AAAAAAAAJSI/ZRMUtwwmcNkr2h2ULoAwnD6r2mZ96k_ZwCLcBGAsYHQ/s1600/maxresdefault%2B%25286%2529.jpg" /> </a>
+            <a class="card_image" href="{{ route('Mics')}}">  <img src="https://1.bp.blogspot.com/-mJsRD5XtzNE/XoJDFAWoirI/AAAAAAAAJSI/ZRMUtwwmcNkr2h2ULoAwnD6r2mZ96k_ZwCLcBGAsYHQ/s1600/maxresdefault%2B%25286%2529.jpg" /> </a>
                 </div>
             <div class="card_title title-black">
                 <p class="text-cards">مايكات احترافية</p>
