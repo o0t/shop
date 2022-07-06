@@ -30,7 +30,6 @@ class ProductsController extends Controller
         return view('Products.Mics');
     }
 
-
     public function index()
     {
         return 'test index ';
