@@ -22,6 +22,8 @@
 ```bash
 λ php artisan config:cache
 ```
+### And
 
-
-
+```bash
+λ php artisan migrate
+```
