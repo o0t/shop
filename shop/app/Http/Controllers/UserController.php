@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Coment;
+use App\Models\addProduct;
+use App\Models\Products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
-class comentController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +17,13 @@ class comentController extends Controller
      */
     public function index()
     {
-        //
+        $user_id = Auth::user()->id;
+        $data = addProduct::join("Products", function ($join) {
+            $join->on("Products.id", "=", "add_products.product_id");
+        })->where(['user_id' => $user_id ])->get();
+
+
+        return view('user.MyProducts', compact('data'));
     }
 
     /**
@@ -36,29 +44,7 @@ class comentController extends Controller
      */
     public function store(Request $request)
     {
-
-        if (Auth::check() == true) {
-
-            $user_id = Auth::user()->id;
-            $username = Auth::user()->name;
-
-            $coment = $request->input('coment');
-            $product_id = $request->input('id');
-
-
-            $coments = new Coment();
-            $coments->user_id       = $user_id;
-            $coments->product_id    = $product_id ;
-            $coments->name          = $username;
-            $coments->coment        = $coment;
-            $coments->save();
-
-            return redirect()->back()->with('status',' تم انشاء تعليقك ');;
-        }else{
-            return redirect('/login');
-        }
-
-
+        //
     }
 
     /**

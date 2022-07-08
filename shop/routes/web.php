@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\comentController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -29,9 +30,15 @@ Route::get('Mouse', [ProductsController::class, 'Mouse'])->name('Mouse');
 Route::get('Mics', [ProductsController::class, 'Mics'])->name('Mics');
 Route::get('Products/{id}', [ProductsController::class, 'show'])->name('show');
 
+// basket of Products user
+Route::get('basket', [UserController::class, 'index'])->name('basket')->middleware('auth');
+
 
 // coment
 Route::post('coment', [comentController::class, 'store'])->name('coment');
+
+// add Product
+Route::get('add/{id}', [ProductsController::class, 'store'])->name('add');
 
 
 // Admin

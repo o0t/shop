@@ -8,7 +8,7 @@
 @section('content')
 
                     @if (session('status'))
-                    <h6 class="alert alert-success">{{ session('status') }}</h6>
+                        <h6 class="alert alert-success">{{ session('status') }}</h6>
                     @endif
             <br><br><br>
             <div class="row row-cols-1 row-cols-md-2 g-4">
@@ -29,7 +29,7 @@
                             <br><br>
                             <div class="d-grid gap-2 col-6 mx-auto">
                                 <br>
-                                <a href="#" class="btn btn-dark"> شراء المنتج </a>
+                                <a href="{{ route('add' , $item->id) }}" class="btn btn-dark"> شراء المنتج </a>
                             </div>
                             </div>
                             <br><br><br><br>

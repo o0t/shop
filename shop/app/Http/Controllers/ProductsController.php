@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\addProduct;
 use App\Models\Coment;
 use App\Models\Products;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller
@@ -58,9 +60,32 @@ class ProductsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request , $id)
     {
-        //
+
+        if (Auth::check() == true) {
+
+            $user_id = Auth::user()->id;
+            $product_id = $id;
+
+
+            $check = addProduct::where([ 'product_id' => $product_id, 'user_id' => $user_id ])->first();
+            if ($check == null) {
+
+                $add = new addProduct();
+                $add->user_id = $user_id;
+                $add->product_id = $product_id;
+                $add->save();
+                return redirect()->back()->with('status',' تم اضافة المنتج  ');
+            }else{
+                return redirect()->back()->with('status',' المنتج مضاف مسبقا ');
+            }
+
+
+        }else{
+            return redirect('/login');
+        }
+
     }
 
     /**
