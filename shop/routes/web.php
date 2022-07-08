@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\comentController;
 use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,10 @@ Route::get('keyboards', [ProductsController::class, 'keyboards'])->name('keyboar
 Route::get('Mouse', [ProductsController::class, 'Mouse'])->name('Mouse');
 Route::get('Mics', [ProductsController::class, 'Mics'])->name('Mics');
 Route::get('Products/{id}', [ProductsController::class, 'show'])->name('show');
+
+
+// coment
+Route::post('coment', [comentController::class, 'store'])->name('coment');
 
 
 // Admin

@@ -7,7 +7,9 @@
 
 @section('content')
 
-
+                    @if (session('status'))
+                    <h6 class="alert alert-success">{{ session('status') }}</h6>
+                    @endif
             <br><br><br>
             <div class="row row-cols-1 row-cols-md-2 g-4">
                 @foreach ($all as $item)
@@ -27,7 +29,7 @@
                             <br><br>
                             <div class="d-grid gap-2 col-6 mx-auto">
                                 <br>
-                                <a href="{{ route('show', $item->id ) }}" class="btn btn-dark">عرض المزيد</a>
+                                <a href="#" class="btn btn-dark"> شراء المنتج </a>
                             </div>
                             </div>
                             <br><br><br><br>
@@ -37,39 +39,37 @@
                             </div>
                         </div>
                                 {{-- Coment --}}
-                                {{-- <div class="card-body">
+                                <div class="card-body">
                                     <h3 class="card-subtitle mb-2 text-muted">التعليقات</h3>
                                 </div>
 
-                                <form action="">
+
+                                <form action="{{ route('coment') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $item->id }} ">
                                     <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                        <textarea name="coment" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
                                         <br><br>
 
                                         <div class="d-grid gap-2 col-6 mx-auto">
-                                        <button type="button" class="btn btn-outline-success">Success</button>
+                                        <button type="submit" class="btn btn-outline-success">ارسال</button>
                                         </div>
                                         <br><br>
                                     </div>
                                 </form>
 
-
-                                <div class="card text-white bg-dark mb-3" >
-                                    <div class="card-header">Header</div>
+                                @foreach ($coments as $coments)
+                                <div class="card mb-3" >
+                                    <div class="card-header"> {{ $coments->name }} </div>
                                     <div class="card-body">
-                                    <h5 class="card-title">Dark card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <p class="card-text"> {{ $coments->coment }} </p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <p class="card-text"> {{ $coments->created_at }} </p>
                                     </div>
                                 </div>
                                 <br><br>
-                                <div class="card text-white bg-dark mb-3" >
-                                    <div class="card-header">Header</div>
-                                    <div class="card-body">
-                                    <h5 class="card-title">Dark card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    </div>
-                                </div>
-                                <br><br> --}}
+                                @endforeach
                                 {{-- Coment / End --}}
 
                         </div>

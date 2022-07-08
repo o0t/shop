@@ -3,43 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Coment;
-use App\Models\Products;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
-class ProductsController extends Controller
+class comentController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-
-    // pages
-    public function Headphones(){
-        $Headphones = DB::table('products')->select('*')->where('type' , 'Headphones')->orderBy('created_at', 'DESC')->get();
-        return view('Products.Headphones', compact('Headphones'));
-    }
-
-    public function keyboards(){
-        $keyboard = DB::table('products')->select('*')->where('type' , 'keyboards')->orderBy('created_at', 'DESC')->get();
-        return view('Products.keyboard', compact('keyboard'));
-    }
-
-    public function Mouse(){
-        $Mouse = DB::table('products')->select('*')->where('type' , 'Mouse')->orderBy('created_at', 'DESC')->get();
-        return view('Products.Mouse', compact('Mouse'));
-    }
-
-    public function Mics(){
-        $Mics = DB::table('products')->select('*')->where('type' , 'Mics')->orderBy('created_at', 'DESC')->get();
-        return view('Products.Mics', compact('Mics'));
-    }
-
     public function index()
     {
-        return 'test index ';
+        //
     }
 
     /**
@@ -60,7 +36,23 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $user_id = Auth::user()->id;
+        $username = Auth::user()->name;
+
+        $coment = $request->input('coment');
+        $product_id = $request->input('id');
+
+
+        $coments = new Coment();
+        $coments->user_id       = $user_id;
+        $coments->product_id    = $product_id ;
+        $coments->name          = $username;
+        $coments->coment        = $coment;
+        $coments->save();
+
+        return redirect()->back()->with('status',' تم انشاء تعليقك ');;
+
     }
 
     /**
@@ -71,11 +63,8 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        $all = DB::table('products')->select('*')->where('id' , $id)->orderBy('created_at', 'DESC')->get();
-        $coments = DB::table('coments')->select('*')->where('product_id' , $id)->orderBy('created_at', 'DESC')->get();
-        return view('Products.show', compact('all','coments'));
+        //
     }
-
 
     /**
      * Show the form for editing the specified resource.

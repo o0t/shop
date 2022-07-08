@@ -16,4 +16,8 @@ class Products extends Model
         'price',
         'type',
     ];
+
+    public function coment(){
+        return $this->hasMany(coment::class,'product_id');
+     }
 }
