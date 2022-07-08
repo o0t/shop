@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Products;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller
 {
@@ -15,19 +17,23 @@ class ProductsController extends Controller
 
     // pages
     public function Headphones(){
-        return view('Products.Headphones');
+        $Headphones = DB::table('products')->select('*')->where('type' , 'Headphones')->orderBy('created_at', 'DESC')->get();
+        return view('Products.Headphones', compact('Headphones'));
     }
 
     public function keyboards(){
-        return view('Products.keyboard');
+        $keyboard = DB::table('products')->select('*')->where('type' , 'keyboards')->orderBy('created_at', 'DESC')->get();
+        return view('Products.keyboard', compact('keyboard'));
     }
 
     public function Mouse(){
-        return view('Products.Mouse');
+        $Mouse = DB::table('products')->select('*')->where('type' , 'Mouse')->orderBy('created_at', 'DESC')->get();
+        return view('Products.Mouse', compact('Mouse'));
     }
 
     public function Mics(){
-        return view('Products.Mics');
+        $Mics = DB::table('products')->select('*')->where('type' , 'Mics')->orderBy('created_at', 'DESC')->get();
+        return view('Products.Mics', compact('Mics'));
     }
 
     public function index()
@@ -64,7 +70,8 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        //
+        $all = DB::table('products')->select('*')->where('id' , $id)->orderBy('created_at', 'DESC')->get();
+        return view('Products.show', compact('all'));
     }
 
     /**

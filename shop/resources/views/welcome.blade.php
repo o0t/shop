@@ -96,7 +96,7 @@
                                 </div>
                                 <div class="col">
                                 <div class="card h-100">
-                                    <img src="https://lh5.googleusercontent.com/X2dUEdcOp36V6AC2uKAmA21uW2t0IuyV89E4UNFFcalggZdUMCqy_hoNiOpc0zhWj5X0cxaVpV4JUt6UKrAkeqrg2S3vUgio4_WhmrEQd20kYRmeIjYQtSFeyo83nmc60cnBdLmd" class="card-img-top" alt="...">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZIIAWmli7S4DZYiKAdaVv4vmDHh5yyUHkJTgZs-FdKe8gFp8N4IIz22yAqLLNKcj-l68&usqp=CAU" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title"> اسم المنتج </h5>
                                         <p class="card-text">وصف المنتج هو الكلمات والتعبيرات التسويقية التي يتم استخدامها بشكل منسق في شرح مزايا وخصائص المنتج وكافة المعلومات المرتبطة به.</p>

@@ -26,12 +26,16 @@ Route::get('Headphones', [ProductsController::class, 'Headphones'])->name('Headp
 Route::get('keyboards', [ProductsController::class, 'keyboards'])->name('keyboards');
 Route::get('Mouse', [ProductsController::class, 'Mouse'])->name('Mouse');
 Route::get('Mics', [ProductsController::class, 'Mics'])->name('Mics');
+Route::get('Products/{id}', [ProductsController::class, 'show'])->name('show');
 
 
 // Admin
 Route::prefix('admin')->middleware('auth','isAdmin')->group(function(){
     Route::get('/Products', [AdminController::class, 'index']);
     Route::post('/Products', [AdminController::class, 'store'])->name('store');
+    Route::get('/Products/{id}', [AdminController::class, 'edit'])->name('edit');
+    Route::put('/Products/{id}', [AdminController::class, 'update'])->name('update');
+    Route::get('/Products/{id}/destroy', [AdminController::class, 'destroy'])->name('destroy');
 });
 
 

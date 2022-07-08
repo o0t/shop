@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Products;
 use Dotenv\Validator;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -16,8 +16,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $select_Products = new Products();
-        $all = $select_Products->all();
+        // $select_Products = new Products();
+        // $all = $select_Products->all();
+        $all = DB::table('products')->select('*')->orderBy('created_at', 'DESC')->get();
         return view('admin.home',compact('all'));
     }
 
@@ -79,7 +80,7 @@ class AdminController extends Controller
 
 
 
-        return redirect()->back()->with('add',' تم انشاء المنتج ');
+        return redirect()->back()->with('status',' تم انشاء المنتج ');
 
     }
 
@@ -102,7 +103,9 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Products = new Products();
+        $Product = $Products->find($id);
+        return view('admin.editProducts',compact('Product'));
     }
 
     /**
@@ -114,7 +117,22 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $update = Products::find($id);
+
+        if ($request->img != Null) {
+
+            $imageName = time().'.'.$request->img->extension();
+            $request->img->move(public_path('images'), $imageName);
+            $update->image = $imageName;
+        }
+        $update->title = $request->input('title');
+        $update->content = $request->input('content');
+        $update->price = $request->input('price');
+        $update->type = $request->input('type');
+        $update->update();
+        return redirect('/admin/Products')->with('status',' تم تعديل المنتج ');
+
     }
 
     /**
@@ -125,6 +143,7 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $destroy = Products::find($id)->delete();
+        return redirect()->back()->with('status_Red',' تم الحذف ');
     }
 }
