@@ -20,23 +20,23 @@ class ProductsController extends Controller
 
     // pages
     public function Headphones(){
-        $Headphones = DB::table('products')->select('*')->where('type' , 'Headphones')->orderBy('created_at', 'DESC')->get();
-        return view('Products.Headphones', compact('Headphones'));
+        $Producer = DB::table('products')->select('*')->where('type' , 'Headphones')->orderBy('created_at', 'DESC')->get();
+        return view('Products.Headphones', compact('Producer'));
     }
 
     public function keyboards(){
-        $keyboard = DB::table('products')->select('*')->where('type' , 'keyboards')->orderBy('created_at', 'DESC')->get();
-        return view('Products.keyboard', compact('keyboard'));
+        $Producer = DB::table('products')->select('*')->where('type' , 'keyboards')->orderBy('created_at', 'DESC')->get();
+        return view('Products.keyboard', compact('Producer'));
     }
 
     public function Mouse(){
-        $Mouse = DB::table('products')->select('*')->where('type' , 'Mouse')->orderBy('created_at', 'DESC')->get();
-        return view('Products.Mouse', compact('Mouse'));
+        $Producer = DB::table('products')->select('*')->where('type' , 'Mouse')->orderBy('created_at', 'DESC')->get();
+        return view('Products.Mouse', compact('Producer'));
     }
 
     public function Mics(){
-        $Mics = DB::table('products')->select('*')->where('type' , 'Mics')->orderBy('created_at', 'DESC')->get();
-        return view('Products.Mics', compact('Mics'));
+        $Producer = DB::table('products')->select('*')->where('type' , 'Mics')->orderBy('created_at', 'DESC')->get();
+        return view('Products.Mics', compact('Producer'));
     }
 
     public function index()
