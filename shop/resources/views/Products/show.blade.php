@@ -14,6 +14,7 @@
             <div class="row row-cols-1 row-cols-md-2 g-4">
                 @foreach ($all as $item)
                     <div class="card mb-3" style="width:70%;">
+                        <br><br><br>
                         <div class="row g-0">
                         <div class="col-md-4">
                             <img src="{{ asset('images/'.$item->image )}}" class="img-fluid rounded-start" width="200" height="50" alt="...">
